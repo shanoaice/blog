@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/series/</loc>
+    <loc>https://konomo.now.sh/blog/</loc>
+    <lastmod>2019-08-15T11:35:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://konomo.now.sh/</loc>
+    <lastmod>2019-08-15T11:35:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://konomo.now.sh/blog/cargo-local-mirror/</loc>
+    <lastmod>2019-08-15T11:35:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://konomo.now.sh/series/</loc>
   </url>
   
 </urlset>
