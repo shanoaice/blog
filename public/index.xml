@@ -5,10 +5,19 @@
     <link>https://konomo.now.sh/</link>
     <description>Recent content on Konomo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 15 Aug 2019 11:35:45 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 30 Aug 2019 11:43:56 +0800</lastBuildDate>
     
 	<atom:link href="https://konomo.now.sh/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>加快 Zsh 启动速度</title>
+      <link>https://konomo.now.sh/blog/improve-zsh-launch-speed/</link>
+      <pubDate>Fri, 30 Aug 2019 11:43:56 +0800</pubDate>
+      
+      <guid>https://konomo.now.sh/blog/improve-zsh-launch-speed/</guid>
+      <description>Bash是个好shell，但是我选择Zsh，因为Zsh可配置性强，但可配置性强带来的后果就是你的Zsh可能会花上好几秒去启动，这样非常烦人，</description>
+    </item>
     
     <item>
       <title>构建一个本地rust crates镜像</title>

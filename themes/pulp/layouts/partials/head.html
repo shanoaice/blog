@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="{{ . }}">
   {{ end }}
 
+  <!-- Prism Theme CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css">
+
   {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates */}}
   {{- template "_internal/opengraph.html" . -}}
   {{- template "_internal/google_news.html" . -}}
@@ -45,4 +48,11 @@
   {{- if and (not .Site.IsServer) .Site.GoogleAnalytics -}}
   {{ template "_internal/google_analytics_async.html" . }}
   {{- end -}}
+
+  <!-- Prism Highlighting -->
+  <script src="https://unpkg.com/prismjs/prism.js"></script>
+  <script src="https://unpkg.com/prismjs/components.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-toml.min.js"></script>
 </head>
