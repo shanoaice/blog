@@ -1,4 +1,4 @@
-baseurl = "https://konomo.now.sh/"
+baseurl = "https://konomo-blog.onrender.com/"
 title = "Konomo Blog"
 theme = "pulp"
 canonifyurls = true
