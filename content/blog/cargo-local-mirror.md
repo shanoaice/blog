@@ -53,4 +53,4 @@ registry = "file://这儿替换成你的镜像目录的绝对路径"
 
 ## 附: 关于Windows下镜像目录的URL
 
-如果Windows下你的镜像目录的绝对路径是`C:/crates.io-index`, 那么镜像目录的URL是`file:///c/crates.io-index`
+如果Windows下你的镜像目录的绝对路径是`C:/crates.io-index`, 那么镜像目录的URL是`file://c/crates.io-index`
