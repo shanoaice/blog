@@ -1,6 +1,6 @@
 const BLOG = {
   author: 'Andy Chen',
-  title: 'KsRyY - unix.bio',
+  title: 'Mashiro - unix.bio',
   description:
     "Hi, I'm Andy Chen, a student who is interested in programming.",
   summary: '学生，编程爱好者',
@@ -16,7 +16,7 @@ const BLOG = {
   email: 'chenhq2005#gmail.com',
   github: 'zeta-xenia',
   twitter: 'shiinamashiro_z',
-  domain: 'mashiroz.now.sh',
+  domain: 'konomo.now.sh',
 
   cn: true,
   enableViews: true,
