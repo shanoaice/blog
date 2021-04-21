@@ -1,0 +1,50 @@
+import Layout from 'lib/components/layout'
+import {} from '@geist-ui/react'
+
+export const meta = {
+  title: '利用 zram 来拯救你的内存空间',
+  date: '2021-04-21T14:01:15.764Z',
+  description: '',
+  image: '',
+}
+
+虽说现在大部分全新的电脑配置都包含了 16GB 以上的内存，但是毕竟不是全部的电脑都有这一档配置。而且， Linux 本身也是对旧硬件相对友好的，总不能指望所有的电脑都有 16GB 以上的内存吧？传统的 swap 分区对磁盘的压力又相对较大，如果放在机械硬盘上的话虽然能缓解一些内存压力，但是一旦要用到交换分区中的内容，机械硬盘那如同龟速的读写速度又能令人抓狂。对于固态硬盘而言，尽管较高的读写速度让交换内存分页不再是“慢速”的代言词，长期的高交换压力产生的大量读写与部分辣鸡固态十分“粪”的 SLC 缓存策略容易对硬盘总体的读写性能造成较大影响。那么，真的就没有一个相对完美的，能够解决小内存机器内存压力的方案吗？
+
+还真的有。zram，就是那个传说中的救世主。
+
+## zram 是什么？
+
+zram，曾用名 compcache，是一个 Linux 内核模块，在 2014 年 5 月 30 日被加入 Linux Kernel 3.14 版本。它的原名 compcache，即 compressed cache，很好地解释了它的作用：一块压缩过的内存空间。它被设计为可以作为一个交换空间来使用。这样，访问量较小的内存页面就可以被放入 zram 中进行压缩以减小内存占用，并且无需额外的硬盘交换空间。
+
+听起来很美好对吧，那么古尔丹，代价是什么？（雾
+
+代价就是以 CPU 占用换空间。压缩和解压都需要消耗 CPU 资源，所以在纯 zram 的配置下对于一些缺指令集的老旧 CPU 不太友好。不过，你都已经知道自己的 CPU 是十分老旧的，那还要什么自行车啊？如果你的电脑的 CPU 够新，那你大概也不会在乎那么一点点的 CPU 占用。况且，被换入 zram 中的内存分页一般使用量都较小，读写带来的开销远远无法抵消压缩内存带来的好处。
+
+那么，如果你决定试试这个解决方案的话，就看下去吧。
+
+## 启用 zram
+
+> 事先声明，本文作者现用系统为 Arch Linux，因此本文中的命令和指导仅能保证在 Arch Linux 下运行。如果在其他发行版中遇到问题，请自行 Google 解决方案。
+
+这里我要介绍一个来自 systemd 官方的解决方案 —— zram-generator。这是一个专门为 systemd 设计的一个小工具，在开机时会自动根据你的配置生成用于管理 zram 的配置单元。随后 systemd 会加载这些配置单元，并自动为你托管这些 zram 设备，而无需你自己手动管理。
+
+首先，根据 zram-generator 官方文档的[指引](https://github.com/systemd/zram-generator#installation)安装 zram-generator。对于 Arch Linux 的用户可以考虑直接从 AUR 获取 zram-generator 的 PKGBUILD。
+
+安装完毕后，将下列内容写入`/etc/systemd/zram-generator.conf`中：
+
+```toml
+[zram0]
+zram-fraction = 0.5 # 指定该 zram 在内存中的大小占比，0.5 为 50%
+compression-algorithm = zstd # 指定压缩算法，默认为 lzo-rle，建议使用 zstd 以获取相对最好的压缩比和读写开销
+```
+
+然后，保存，重启。系统加载完毕后，确保你有安装 `util-linux`（此为 Arch Linux 下的包名，请自行寻找其他发行版中包含 `zramctl` 命令的软件包），随后在命令行中输入 `zramctl`。你应该会看到类似的输出：
+
+```
+NAME       ALGORITHM DISKSIZE   DATA  COMPR  TOTAL STREAMS MOUNTPOINT
+/dev/zram1 zstd          3.8G 278.9M 107.9M 110.2M       8 [SWAP]
+```
+
+那么，恭喜你，你已经成功启用了 zram。享受这折腾带来的成果吧。
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
