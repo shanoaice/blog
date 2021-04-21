@@ -8,8 +8,7 @@
     "post": "node scripts/create.js",
     "prettier": "prettier --write .",
     "collect": "node scripts/collect-meta.js",
-    "export": "npm run now-build && next export",
-    "build": "npm run now-build && next export"
+    "export": "npm run now-build && next export"
   },
   "prettier": "@geist-ui/prettier-config",
   "dependencies": {
