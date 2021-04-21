@@ -14,7 +14,7 @@ const BLOG = {
   },
 
   email: 'chenhq2005#gmail.com',
-  github: 'zeta-xenia',
+  github: 'shanoaice',
   twitter: 'shiinamashiro_z',
   domain: 'konomo.now.sh',
 
