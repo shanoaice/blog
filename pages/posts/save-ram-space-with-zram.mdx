@@ -34,15 +34,16 @@ zram，曾用名 compcache，是一个 Linux 内核模块，在 2014 年 5 月 3
 
 ```toml
 [zram0]
-zram-fraction = 0.5 # 指定该 zram 在内存中的大小占比，0.5 为 50%
+zram-fraction = 0.5 # 指定该 zram 在内存中的大小占比，0.5 为 50%，官方建议范围：0.1~0.5
 compression-algorithm = zstd # 指定压缩算法，默认为 lzo-rle，建议使用 zstd 以获取相对最好的压缩比和读写开销
 ```
 
-然后，保存，重启。系统加载完毕后，确保你有安装 `util-linux`（此为 Arch Linux 下的包名，请自行寻找其他发行版中包含 `zramctl` 命令的软件包），随后在命令行中输入 `zramctl`。你应该会看到类似的输出：
+然后，保存，重启。系统加载完毕后，在命令行中输入 `swapon --show`。你应该会看到类似的输出：
 
 ```
-NAME       ALGORITHM DISKSIZE   DATA  COMPR  TOTAL STREAMS MOUNTPOINT
-/dev/zram1 zstd          3.8G 278.9M 107.9M 110.2M       8 [SWAP]
+NAME           TYPE      SIZE USED PRIO
+/dev/nvme0n1p6 partition   8G   0B   -2 # 忽略本行，此为作者的硬盘交换分区
+/dev/zram0     partition 3.8G 1.8G  100
 ```
 
 那么，恭喜你，你已经成功启用了 zram。享受这折腾带来的成果吧。
