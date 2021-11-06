@@ -12,7 +12,8 @@ theme = "lightspeed"
 title = "Shanoa Ice's Blog"
 description = "16 y.o. high school student."
 
-generate-feed = true
+generate_feed = true
+feed_filename = "rss.xml"
 
 [markdown]
 highlight_code = true
@@ -20,6 +21,6 @@ highlight_code = true
 [extra]
 footer_links = [
     {url = "$BASE_URL/about", name = "About"},
-    {url = "$BASE_URL/atom.xml", name = "RSS"},
+    {url = "$BASE_URL/rss.xml", name = "RSS"},
     {url = "https://github.com/shanoaice", name = "Github"},
 ]
