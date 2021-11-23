@@ -108,7 +108,8 @@ mount -v [btrfs device] /btrfs-root
 ```sh
 btrfs subvolume create @
 btrfs subvolume create @home
-# 按需创建其他的子卷, 如果需要使用 swapfile 的配置则建议为其单独创建子卷防止其被包含入快照中
+# 按需创建其他的子卷
+# 如果需要使用 swapfile 的配置则建议为其单独创建子卷, 防止其被包含入快照中
 btrfs subvolume create [subvol name]
 ```
 
@@ -314,7 +315,7 @@ no hassle. 这也是笔者选择 Arch Installation ISO 的另一原因: `arch-ch
 使用 `eselect` 可以看到当前系统正在使用什么配置文件，现在来使用 `profile` 模块：
 
 ```
-root #``eselect profile list
+# eselect profile list
 Available profile symlink targets:
   [1]   default/linux/amd64/17.1 *
   [2]   default/linux/amd64/17.1/desktop
@@ -394,3 +395,32 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ### 配置 Locale
 
 请参考 Gentoo Handbook 的[对应章节](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base/zh-cn#.E9.85.8D.E7.BD.AE_locale).
+
+### 配置内核
+
+非常不建议初次使用 Gentoo 的读者手动配置内核, 此种安装方法费时费力, 且稍有差池就会得到一个无法启动的内核. 如果确实有手动配置的需求, 请参考 Gentoo Handbook 的[对应章节](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel/zh-cn#.E9.BB.98.E8.AE.A4.EF.BC.9A.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE). 如果使用了 btrfs 透明压缩, 不要忘记将对应的压缩方式 (一般是 LZO 或者 Zstd) 编译进内核中 (不是编译成模块). 如果需要使用 iwd 连接无线网络, 不要忘记开启对应的内核加密方式 (参考: [Gentoo Wiki: iwd](https://wiki.gentoo.org/wiki/Iwd#Kernel)).
+
+推荐的安装方式是使用 Distribution Kernel, 这样内核会随系统一同更新且无需担心硬件兼容问题 (Gentoo 的 dist-kernel 会几乎编译所有的 non-obselete feature 和 hardware support).
+
+首先, 根据要使用的启动器安装 installkernel 包:
+
+```sh
+# if using GRUB
+emerge --ask sys-kernel/installkernel-gentoo
+```
+
+然后, 安装 dist-kernel 包和固件:
+
+```sh
+emerge --ask sys-kernel/gentoo-kernel
+# 也可以用编译好的 binary
+emerge --ask sys-kernel/gentoo-kernel-bin
+
+# 固件, 许可为 @BINARY-REDISTRIBUTABLE
+emerge --ask sys-kernel/linux-firmware
+
+# Intel 微码, 许可为 @BINARY-REDISTRIBUTABLE
+sys-firmware/intel-microcode 
+```
+
+如果有额外的 DKMS 需求可以参考 Gentoo Handbook 的[对应章节](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel/zh-cn#Alternative:_Using_distribution_kernels).
