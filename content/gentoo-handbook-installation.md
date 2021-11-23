@@ -6,8 +6,6 @@ date = 2021-11-21T17:39:00
 
 事先声明：这份安装指南与官方的 Gentoo Handbook 相当不同, 内含大量个人观点 (一般以斜体标出), 并不保证能够覆盖到全部的情况 (相对不关心的部分有: 对较老硬件的支持, 配置和**笔者未遇见过的**边角情况等), 如有任何问题请以官方手册为准. 
 
-本篇为安装篇, 并且尚未完成.
-
 ## 开始
 首先, 笔者并不建议使用 Gentoo 官方提供的 Installation ISO, 一些原因有：
 
@@ -508,3 +506,93 @@ DHCP=ipv4
 ```sh
 passwd
 ```
+
+### 硬件时钟
+
+写入硬件时钟:
+
+```sh
+hwclock -w
+```
+
+### 配置 cron daemon
+
+安装 `sys-process/cronie` 包并启用:
+
+```sh
+emerge --ask sys-process/cronie
+systemctl enable cronie
+```
+
+### 配置 bootloader
+
+安装 GRUB 2:
+
+```sh
+emerge -av sys-boot/grub:2
+```
+
+请注意: 运行上述命令将在出现之前输出启用的 GRUB_PLATFORMS 值. 如果输出中没有 `efi-64`, 则需要在安装前将 `GRUB_PLATFORMS="efi-64"` 添加到 `/etc/portage/make.conf` 再安装: 
+
+```sh
+echo "GRUB_PLATFORMS="efi-64" >> /etc/portage/make.conf
+emerge --ask sys-boot/grub:2
+```
+
+如果有多系统启动的需求, 建议一并安装 `sys-boot/os-prober` 以检测其它系统的引导:
+
+```sh
+emerge --ask sys-boot/os-prober
+```
+
+将 GRUB2 安装至 EFI 分区:
+
+```sh
+grub-install --target=x86_64-efi --efi-directory=/efi
+```
+
+编辑 `/etc/defaut/grub` 以选择正确的 init 并启用 os-prober:
+
+```conf
+GRUB_DISTRIBUTOR="Gentoo"
+
+# 10 秒等待时间
+GRUB_TIMEOUT=10
+
+# OpenRC 用户请去掉 init 相关选项
+# 首次启动或需要 debug 时建议去除 quiet 选项以启用 logging
+# nowatchdog 可以显著提升关机速度
+GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd loglevel=5 quiet nowatchdog"
+
+# GRUB 很多时候无法正确检测到屏幕分辨率
+# 将此值设置为屏幕 长x宽x色深 的形式可以解决该问题
+GRUB_GFXMODE=1920x1080x32
+
+# 启用 os-prober
+# 无需多系统的用户不必配置此项
+GRUB_DISABLE_OS_PROBER=0
+```
+
+随后生成 grub.cfg:
+
+```sh
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### 重启系统
+
+退出 chroot 并解除挂载所有分区.
+
+```sh
+exit
+```
+
+```sh
+cd
+umount -vR /mnt/gentoo
+reboot
+```
+
+现在, 可以开始安装后工作了. 
+
+安装后工作的 Handbook 第二章还在筹备.
