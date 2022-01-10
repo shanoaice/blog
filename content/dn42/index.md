@@ -10,26 +10,44 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with one node currently online. If
 
 # 节点列表
 
-除非另外标明，IPv6 Link Local 地址均为 `fe80::2434`; 所有节点均支持 Extended Next Hop 和 MP-BGP (on v6). 如果你的节点不支持 MP-BGP, 请在 peering request 中说明. 
+- **Zurich, Switzerland**  
+  Provider: Azure Cloud  
+  Speed: 1Gbps  
+  WireGuard Pubic Key: `jSStWALn3+1Iqy9RXygkVomaGGm6g+M1+zFuQiey60k=`  
+  EndPoint: zur1-azr.bugsur.xyz (behind **NAT**)  
+  IPv4 Address: zur1-azr.bugsur.xyz  
+  IPv6 Address: No IPv6 Clearnet Address  
+  WireGuard Port: your last 5 ASN digits  
+  DN42 IPv4 Address: 172.20.158.211  
+  DN42 IPv6 Address: fdad:b98a:7dcb::2436  
+  Link Local Address: fe80::2434/64  
+  Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
+  Extended Next Hop: **Yes**  
 
-对于一般的 DN42 网络 peer 而言, 隧道端口为 2xxxx (xxxx 为你的 AS 号后四位). 来自其他网络 (例如 NeoNetwork) 的 peer 请求请单独说明, 一般会分配 5xxxx 端口作为隧道端点 (xxxx 同样为你的 AS 号后四位). 
+- **Los Angeles, CA, United States**  
+  Provider: DMIT  
+  Speed: 500Mbps  
+  WireGuard Pubic Key: `x8nuSiQ4B9fyV/Qe7htgsjeuPMQPziAvOigOt+FWIgs=`  
+  Endpoint: lax1-cn2.bugsur.xyz  
+  WireGuard Port: your last 5 ASN digits  
+  IPv4 Address: v4.lax1-cn2.bugsur.xyz  
+  IPv6 Address: v6.lax1-cn2.bugsur.xyz  
+  DN42 IPv4 Address: 172.20.158.209  
+  DN42 IPv6 Address: fdad:b98a:7dcb::2434  
+  Link Local Address: fe80::2434/64  
+  Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
+  Extended Next Hop: **Yes**
 
-如果你的节点没有 (或者没有固定的) 公网 IP, 也请说明, 否则可能会造成连接丢失.
+- **Chicago, IL, United States**  
+  Provider: *NoyesIX*  
+  Endpoint: noyesix.bugsur.xyz (IPv6)  
+  **Usually** you will want to join NoyesIX (ask in the unofficial multilingual Telegram group) to peer with this node.  
+  If ping to other peer is **unacceptable** (such as when you are running a Europe IPv6 only PoP), this node can still accept direct peers. Just ask before proceeding and I will send the config to you.
+
+如果想与我对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizkui.
+
+For peering requsets, please contact `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` or @mika_akizkui on Telegram.
 
 我的 Looking Glass 地址位于博客底栏中, 供完成 peer 后检查连接状态.
 
-Unless otherwise noted, IPv6 link local address of all nodes are `fe80::2434`. All nodes supports and by default enables Extended Next Hop and MP-BGP capabalities. If your node does not support MP-BGP, please mention it in your peering request. 
-
-To usual DN42 peers (with AS number in format AS424242xxxx), the tunnel port will be 20000 + **last 4 digits of your AS number**. If your AS number is out of that range, you will usually get 50000 + **last 4 digits of your AS number** as the tunnel port. 
-
-If your node does not have (or does not have a fixed) clearnet ip, please mention in the request too, otherwise a misconfiguration may cause lost of connection.
-
 My Looking Glass instance links is in the footer of this blog. You can use it to check connectivity after peering is done.
-
-- **Los Angeles, CA, United States**
-  - WireGuard Pubic Key: `x8nuSiQ4B9fyV/Qe7htgsjeuPMQPziAvOigOt+FWIgs=`
-  - Endpoint: lax1-cn2.bugsur.xyz
-  - IPv4 Address: v4.lax1-cn2.bugsur.xyz
-  - IPv6 Address: v6.lax1-cn2.bugsur.xyz
-  - DN42 IPv4 Address: 172.20.158.209
-  - DN42 IPv6 Address: fdad:b98a:7dcb::2434
