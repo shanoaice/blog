@@ -21,7 +21,7 @@ highlight_code = true
 [extra]
 footer_links = [
     {url = "$BASE_URL/dn42", name = "DN42"},
-    {url = "https://chatnoir-dn42-lg.herokuapp.com", name = "Looking Glass"},
+    {url = "https://dn42-lg.bugsur.xyz", name = "Looking Glass"},
     {url = "$BASE_URL/rss.xml", name = "RSS"},
     {url = "https://github.com/shanoaice", name = "Github"},
 ]
