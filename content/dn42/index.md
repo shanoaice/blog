@@ -14,8 +14,8 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with two nodes currently online. I
   Provider: Azure Cloud  
   Speed: 1Gbps  
   WireGuard Pubic Key: `MUShSTyApCSU7Rc1TLCGKiyyOBAIkLzEEVCpOf6wbQ0=`  
-  EndPoint: zur1-azr.bugsur.xyz (behind **NAT**, so it is recommended to **not** set up endpoint on your side)  
-  IPv4 Address: zur1-azr.bugsur.xyz  
+  EndPoint: zrh1-ch.bugsur.xyz (behind **NAT**, so it is recommended to **not** set up endpoint on your side)  
+  IPv4 Address: v4.zrh1-ch.bugsur.xyz  
   IPv6 Address: No IPv6 Clearnet Address  
   WireGuard Port: your last 5 ASN digits  
   DN42 IPv4 Address: 172.20.158.211  
@@ -28,10 +28,10 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with two nodes currently online. I
   Provider: DMIT  
   Speed: 500Mbps  
   WireGuard Pubic Key: `x8nuSiQ4B9fyV/Qe7htgsjeuPMQPziAvOigOt+FWIgs=`  
-  Endpoint: lax1-cn2.bugsur.xyz  
+  Endpoint: lax1-us.bugsur.xyz  
   WireGuard Port: your last 5 ASN digits  
-  IPv4 Address: v4.lax1-cn2.bugsur.xyz  
-  IPv6 Address: v6.lax1-cn2.bugsur.xyz  
+  IPv4 Address: v4.lax1-us.bugsur.xyz  
+  IPv6 Address: v6.lax1-us.bugsur.xyz  
   DN42 IPv4 Address: 172.20.158.209  
   DN42 IPv6 Address: fdad:b98a:7dcb::2434  
   Link Local Address: fe80::2434/64  
