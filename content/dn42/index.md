@@ -4,17 +4,17 @@ title = 'DN42'
 
 DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 VPN 网络。但是与其它传统 VPN 不同的是，DN42 本身不提供 VPN 出口服务，即不提供规避网络审查、流媒体解锁等类似服务。相反，DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。
 
-我在 DN42 中运营 AS4242423743 (CHATNOIR-AS), 目前拥有一个节点。有 peer 请求可以联系我的 Telegram 账号 @mika_akizuki (暂时只接受 WireGuard Tunnel).
+我在 DN42 中运营 AS4242423743 (CHATNOIR-AS), 目前拥有两个节点。有 peer 请求可以联系我的 Telegram 账号 @mika_akizuki (暂时只接受 WireGuard Tunnel).
 
-I operate AS4242423743 (CHATNOIR-AS) in DN42, with one node currently online. If you want to peer with me, please contact `shanoaice@HackInt#dn42` on IRC or send a email to `mashiro350 [at] protonmail [dot] com`.
+I operate AS4242423743 (CHATNOIR-AS) in DN42, with two nodes currently online. If you want to peer with me, please contact `shanoaice@HackInt#dn42` on IRC or send a email to `mashiro350 [at] protonmail [dot] com`.
 
 # 节点列表
 
 - **Zurich, Switzerland**  
   Provider: Azure Cloud  
   Speed: 1Gbps  
-  WireGuard Pubic Key: `jSStWALn3+1Iqy9RXygkVomaGGm6g+M1+zFuQiey60k=`  
-  EndPoint: zur1-azr.bugsur.xyz (behind **NAT**)  
+  WireGuard Pubic Key: `MUShSTyApCSU7Rc1TLCGKiyyOBAIkLzEEVCpOf6wbQ0=`  
+  EndPoint: zur1-azr.bugsur.xyz (behind **NAT**, so it is recommended to **not** set up endpoint on your side)  
   IPv4 Address: zur1-azr.bugsur.xyz  
   IPv6 Address: No IPv6 Clearnet Address  
   WireGuard Port: your last 5 ASN digits  
