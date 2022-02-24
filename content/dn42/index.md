@@ -24,7 +24,7 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with two nodes currently online. I
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**  
 
-- **Lepizig, Germany** LEJ1-DE  
+- **Falkenstein, Germany** LEJ1-DE  
   Provider: Hax.co.id (L1 Provider is Hetzner)  
   Speed: 100Mbps  
   WireGuard Pubic Key: `FzKNluDXuNscqy2WQ6Ik7+HcWoSoD4P9MqiltZykhAs=`  
