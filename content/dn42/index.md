@@ -4,9 +4,9 @@ title = 'DN42'
 
 DN42 全称 Decentralized Network 42（42 号去中心网络），是一个大型、去中心化的 VPN 网络。但是与其它传统 VPN 不同的是，DN42 本身不提供 VPN 出口服务，即不提供规避网络审查、流媒体解锁等类似服务。相反，DN42 的目的是模拟一个互联网。它使用了大量在目前互联网骨干上应用的技术（例如 BGP 和递归 DNS），可以很好地模拟一个真实的网络环境。
 
-我在 DN42 中运营 AS4242423743 (CHATNOIR-AS), 目前拥有两个节点。有 peer 请求可以联系我的 Telegram 账号 @mika_akizuki (暂时只接受 WireGuard Tunnel).
+我在 DN42 中运营 AS4242423743 (CHATNOIR-AS), 目前拥有六个节点。有 peer 请求可以联系我的 Telegram 账号 @mika_akizuki (暂时只接受 WireGuard Tunnel).
 
-I operate AS4242423743 (CHATNOIR-AS) in DN42, with two nodes currently online. If you want to peer with me, please contact `shanoaice@HackInt#dn42` on IRC or send a email to `mashiro350 [at] protonmail [dot] com`.
+I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If you want to peer with me, please contact `shanoaice@HackInt#dn42` on IRC or send a email to `mashiro350 [at] protonmail [dot] com`.
 
 # 节点列表 Node List
 
@@ -80,10 +80,10 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with two nodes currently online. I
   Provider: Oracle Cloud  
   Speed: 480Mbps  
   WireGuard Public Key: `bs/T5TWlC75M7zaQM0U/Nr+An/EeXR/LFU946uGHBU4=`  
-  Endpoint: kix1-jp.bugsur.xyz (v4 only)  
+  Endpoint: kix1-jp.bugsur.xyz  
   WireGuard Port: your last 5 ASN digits  
   IPv4 Address: v4.kix1-jp.bugsur.xyz  
-  IPv6 Address: 2603:c023:1:1a33:2434::1 (not routeable as for now)  
+  IPv6 Address: v6.kix1-jp.bugsur.xyz
   DN42 IPv4 Address: 172.20.158.214  
   DN42 IPv6 Address: fdad:b98a:7dcb::2439  
   Link Local Address: fe80::2434/64  
