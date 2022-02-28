@@ -99,9 +99,9 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Due to Azure Cloud's high cost and its suboptimal cold-potato routing in Zurich region, this node has been decommissioned. Its functionality is replaced by both **AMS1-NL** and **LEJ1-DE** node. Its DN42 IP address alongside with previous peers has been re-assigned to **AMS1-NL** node. The public DNS record zrh1-ch.bugsur.xyz is preserved for compatibility and is now pointing to ams1-nl.bugsur.xyz (which is AAAA only).  
   由于 Azure 高昂的费用和其在瑞士地区较为迷惑的冷土豆路由，苏黎世节点已经从网络中被移除。它的功能将被新的阿姆斯特丹与莱比锡节点共同承担。它的 DN42 IP 地址与原有的对等连接已经被重分配给阿姆斯特丹节点。它的终端节点域名 zrh1-ch.bugsur.xyz 现在指向 ams1-nl.bugsur.xyz (为兼容性原因保留，但现在该地址只有 IPv6 AAAA 记录).
 
-如果想与我对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizkui.
+如果想与我对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizuki.
 
-For peering requsets, please contact `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` or @mika_akizkui on Telegram.
+For peering requsets, please contact `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` or @mika_akizuki on Telegram.
 
 我的 Looking Glass 地址位于博客底栏中, 供完成 peer 后检查连接状态.
 
