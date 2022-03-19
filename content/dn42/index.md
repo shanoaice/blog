@@ -27,13 +27,13 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**  
 
-- **Helsinky, Finland** HEL1-FL  
+- **Helsinky, Finland** HEL1-FI  
   Provider: Hax.co.id (L1 Provider is Hetzner)  
   Speed: 100Mbps  
   WireGuard Pubic Key: `FzKNluDXuNscqy2WQ6Ik7+HcWoSoD4P9MqiltZykhAs=`  
-  EndPoint: hel1-fl.bugsur.xyz (v6 only)  
+  EndPoint: hel1-fi.bugsur.xyz (v6 only)  
   IPv4 Address: v4 Clearnet NAT access is provided by **Cloudflare WARP**  
-  IPv6 Address: v6.hel1-fl.bugsur.xyz  
+  IPv6 Address: v6.hel1-fi.bugsur.xyz  
   WireGuard Port: your last 5 ASN digits  
   DN42 IPv4 Address: 172.20.158.213  
   DN42 IPv6 Address: fdad:b98a:7dcb::2438  
