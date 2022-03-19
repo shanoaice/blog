@@ -42,6 +42,7 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Extended Next Hop: **Yes**  
 
 - **Los Angeles, California, United States** LAX1-US  
+  **This node will expire after March 24th, 2022. New Peers will not be accepted. Old Peers will be migrated to the upcoming OAK1-US node.**  
   Provider: DMIT  
   Speed: 500Mbps  
   WireGuard Pubic Key: `x8nuSiQ4B9fyV/Qe7htgsjeuPMQPziAvOigOt+FWIgs=`  
@@ -55,7 +56,7 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**
 
-- **Toronto, Canada** YYZ1-CA  
+- **Toronto, Canada** YYZ1-CA (*Down*)  
   Provider: Oracle Cloud  
   **Sponsored by: [186526](https://net.186526.xyz)**  
   Speed: 480Mbps  
@@ -74,7 +75,7 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
 >
 > The Toronto, Canada node is sponsored by [186526](https://net.168526.xyz), spec Oracle Cloud Ampere Compute A1 Flex, 2 OCPU, 12GB RAM. Thanks for his/her support.
 
-- **Chicago, IL, United States** (*Down*)  
+- **Chicago, Illnois, United States** (*Down*)  
   Provider: *NoyesIX*  
   Endpoint: noyesix.bugsur.xyz (IPv6)  
   **Usually** you will want to join NoyesIX (ask in the unofficial multilingual Telegram group) to peer with this node.  
@@ -92,6 +93,16 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Link Local Address: fe80::2434/64  
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**
+
+## 即将上线的节点列表 Upcoming Node List
+
+- **Shanghai, China** PVG1-CN  
+  中国电信家宽，100Mbps 下行，30Mbps 上行.  
+  China Telecom Home Broadband, 30Mbps Up, 100Mbps Down.
+
+- **Fremont, California, United States** OAK1-US  
+  Koisp Cloud, Hurricane Eletric 线路，双向 100Mbps 带宽.  
+  Koisp Cloud, Hurricane Eletric BGP, 100Mbps Dual.
 
 ## 已退役节点列表 Historical Node List
 
