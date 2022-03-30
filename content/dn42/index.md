@@ -41,21 +41,6 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**  
 
-- **Los Angeles, California, United States** LAX1-US  
-  **This node will expire after March 24th, 2022. New Peers will not be accepted. Old Peers will be migrated to the upcoming OAK1-US node.**  
-  Provider: DMIT  
-  Speed: 500Mbps  
-  WireGuard Pubic Key: `x8nuSiQ4B9fyV/Qe7htgsjeuPMQPziAvOigOt+FWIgs=`  
-  Endpoint: lax1-us.bugsur.xyz  
-  WireGuard Port: your last 5 ASN digits  
-  IPv4 Address: v4.lax1-us.bugsur.xyz  
-  IPv6 Address: v6.lax1-us.bugsur.xyz  
-  DN42 IPv4 Address: 172.20.158.209  
-  DN42 IPv6 Address: fdad:b98a:7dcb::2434  
-  Link Local Address: fe80::2434/64  
-  Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
-  Extended Next Hop: **Yes**
-
 - **Toronto, Canada** YYZ1-CA (*Down*)  
   Provider: Oracle Cloud  
   **Sponsored by: [186526](https://net.186526.xyz)**  
@@ -111,8 +96,12 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   由于 Azure 高昂的费用和其在瑞士地区较为迷惑的冷土豆路由，苏黎世节点已经从网络中被移除。它的功能将被新的阿姆斯特丹与莱比锡节点共同承担。它的 DN42 IP 地址与原有的对等连接已经被重分配给阿姆斯特丹节点。它的终端节点域名 zrh1-ch.bugsur.xyz 现在指向 ams1-nl.bugsur.xyz (为兼容性原因保留，但现在该地址只有 IPv6 AAAA 记录).
 
 - **Falkenstein, Germany** (Mar. 8th, 2022)  
-  Falkenstein's location is somehow redundant as there is already a backbone node at Amsterdam in West Europe location. In order to improve connection to East Europe location, this node is now being replaced by the Finland node located at Helsinky. Existing BGP sessions and domains are not preserved.  
-  由于西欧地区已经存在阿姆斯特丹这一骨干节点，法尔肯施泰因的位置使本节点显得有些冗余。因此，此节点将被位于赫尔辛基的芬兰节点替代，以期改善东欧地区的连接质量。此次迁移不保留域名与已有 BGP 会话。
+  Falkenstein's location is somehow redundant as there is already a backbone node at Amsterdam in West Europe location. In order to improve connection to East Europe location, this node is now being replaced by the Finland node located at Helsinky. Existing peers and domains are not preserved.  
+  由于西欧地区已经存在阿姆斯特丹这一骨干节点，法尔肯施泰因的位置使本节点显得有些冗余。因此，此节点将被位于赫尔辛基的芬兰节点替代，以期改善东欧地区的连接质量。此次迁移不保留域名与已有对等互联。
+
+- **Los Angeles, California, United States** (Mar.24, 2022)
+  I have decided to not continue using DMIT's Premium Los Angeles VPS due to having a better & cost-effective choice (Kolar Cloud's Fremont 9929). New service is approximately at the same location (OAK1-US), so existing peers will be preserved. Old domains will still be kept for a few weeks.
+  由于有性价比更优的选择，我决定不再续期 DMIT 的 Premium 洛杉矶 VPS. 新节点 (OAK1-US) 位于湾区的弗里蒙特，与洛杉矶地理位置相近，因此我决定保留原有的全部对等互联. 旧域名将会保留一段时间，指向新节点的 IP.
 
 如果想与我对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizuki.
 
