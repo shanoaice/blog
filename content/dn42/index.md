@@ -53,7 +53,7 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Endpoint: kix1-jp.bugsur.xyz  
   WireGuard Port: your last 5 ASN digits  
   IPv4 Address: v4.kix1-jp.bugsur.xyz  
-  IPv6 Address: v6.kix1-jp.bugsur.xyz
+  IPv6 Address: v6.kix1-jp.bugsur.xyz  
   DN42 IPv4 Address: 172.20.158.214  
   DN42 IPv6 Address: fdad:b98a:7dcb::2439  
   Link Local Address: fe80::2434/64  
@@ -88,7 +88,7 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   It seems that there is not much DN42 coverage in Eastern Europe area. No peers has been established since the addition of this node, so I decided to decommision this node. No substitiution is planned.  
   自从此节点上线以来，我并没有找到合适的对等互联，也没有任何与此节点的对等互联请求，因此我决定关闭这一节点。目前并无对此节点的替代计划。
 
-如果想与我对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizuki.
+如果想与我建立对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizuki.
 
 For peering requsets, please contact `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` or @mika_akizuki on Telegram.
 
