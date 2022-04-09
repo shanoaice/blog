@@ -27,38 +27,19 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**  
 
-- **Helsinky, Finland** HEL1-FI  
-  Provider: Hax.co.id (L1 Provider is Hetzner)  
-  Speed: 100Mbps  
-  WireGuard Pubic Key: `FzKNluDXuNscqy2WQ6Ik7+HcWoSoD4P9MqiltZykhAs=`  
-  EndPoint: hel1-fi.bugsur.xyz (v6 only)  
-  IPv4 Address: v4 Clearnet NAT access is provided by **Cloudflare WARP**  
-  IPv6 Address: v6.hel1-fi.bugsur.xyz  
+- **Fremont, California, United States** FMT1-US  
+  Provider: Koisp KGC  
+  Speed: 120Mbps  
+  WireGuard Pubic Key: `x8nuSiQ4B9fyV/Qe7htgsjeuPMQPziAvOigOt+FWIgs=`  
+  Endpoint: fmt1-us.bugsur.xyz  
   WireGuard Port: your last 5 ASN digits  
-  DN42 IPv4 Address: 172.20.158.213  
-  DN42 IPv6 Address: fdad:b98a:7dcb::2438  
-  Link Local Address: fe80::2434/64  
-  Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
-  Extended Next Hop: **Yes**  
-
-- **Toronto, Canada** YYZ1-CA (*Down*)  
-  Provider: Oracle Cloud  
-  **Sponsored by: [186526](https://net.186526.xyz)**  
-  Speed: 480Mbps  
-  WireGuard Public Key: `XTBuEghaAHzVAThpPytjD1VRvy0KcS71fT5+aX6I7jI=`  
-  Endpoint: yyz1-ca.bugsur.xyz (v4 only)  
-  WireGuard Port: your last 5 ASN digits  
-  IPv4 Address: v4.yyz1-ca.bugsur.xyz  
-  IPv6 Address: v6 Clearnet NAT access is provided by **Cloudflare WARP**  
-  DN42 IPv4 Address: 172.20.158.214  
-  DN42 IPv6 Address: fdad:b98a:7dcb::2439  
+  IPv4 Address: v4.fmt1-us.bugsur.xyz  
+  IPv6 Address: v6.fmt1-us.bugsur.xyz  
+  DN42 IPv4 Address: 172.20.158.209  
+  DN42 IPv6 Address: fdad:b98a:7dcb::2434  
   Link Local Address: fe80::2434/64  
   Multi Protocol BGP: **Yes** (link local IPv6 **preferred**)  
   Extended Next Hop: **Yes**
-
-> 位于加拿大的多伦多节点由 [186526](https://net.168526.xyz) 赞助，配置为 Oracle Cloud Ampere Compute A1 Flex, 2 OCPU, 12GB RAM. 感谢他的支持.
->
-> The Toronto, Canada node is sponsored by [186526](https://net.168526.xyz), spec Oracle Cloud Ampere Compute A1 Flex, 2 OCPU, 12GB RAM. Thanks for his/her support.
 
 - **Chicago, Illnois, United States** (*Down*)  
   Provider: *NoyesIX*  
@@ -85,10 +66,6 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   中国电信家宽，100Mbps 下行，30Mbps 上行.  
   China Telecom Home Broadband, 30Mbps Up, 100Mbps Down.
 
-- **Fremont, California, United States** OAK1-US  
-  Koisp Cloud, Hurricane Eletric 线路，双向 100Mbps 带宽.  
-  Koisp Cloud, Hurricane Eletric BGP, 100Mbps Dual.
-
 ## 已退役节点列表 Historical Node List
 
 - **Zurich, Switzerland** (Feb. 12th, 2022)  
@@ -99,9 +76,17 @@ I operate AS4242423743 (CHATNOIR-AS) in DN42, with 6 nodes currently online. If 
   Falkenstein's location is somehow redundant as there is already a backbone node at Amsterdam in West Europe location. In order to improve connection to East Europe location, this node is now being replaced by the Finland node located at Helsinky. Existing peers and domains are not preserved.  
   由于西欧地区已经存在阿姆斯特丹这一骨干节点，法尔肯施泰因的位置使本节点显得有些冗余。因此，此节点将被位于赫尔辛基的芬兰节点替代，以期改善东欧地区的连接质量。此次迁移不保留域名与已有对等互联。
 
-- **Los Angeles, California, United States** (Mar.24, 2022)
-  I have decided to not continue using DMIT's Premium Los Angeles VPS due to having a better & cost-effective choice (Kolar Cloud's Fremont 9929). New service is approximately at the same location (OAK1-US), so existing peers will be preserved. Old domains will still be kept for a few weeks.
+- **Los Angeles, California, United States** (Mar.24th, 2022)  
+  I have decided to not continue using DMIT's Premium Los Angeles VPS due to having a better & cost-effective choice (Kolar Cloud's Fremont 9929). New service is approximately at the same location (OAK1-US), so existing peers will be preserved. Old domains will still be kept for a few weeks.  
   由于有性价比更优的选择，我决定不再续期 DMIT 的 Premium 洛杉矶 VPS. 新节点 (OAK1-US) 位于湾区的弗里蒙特，与洛杉矶地理位置相近，因此我决定保留原有的全部对等互联. 旧域名将会保留一段时间，指向新节点的 IP.
+
+- **Toronto, Canada** (Apr.9th, 2022)  
+  186526's account providing this node has been suspended by Oracle Cloud for no reason and he decided not to recover this node. I understand his choice and so will take this node down. Hopefully a new low-price substitiution can be added soon.  
+  由于 Oracle Cloud 在没有任何预兆的情况下暂停了 186526 为本节点使用的账户，他决定不恢复此节点。我对此决定表示理解，因此将关闭本节点。我已经开始寻找北美东海岸的低价替代，希望能够尽快恢复该地区的接入。
+
+- **Helsinky, Finland** (Apr.9th, 2022)  
+  It seems that there is not much DN42 coverage in Eastern Europe area. No peers has been established since the addition of this node, so I decided to decommision this node. No substitiution is planned.  
+  自从此节点上线以来，我并没有找到合适的对等互联，也没有任何与此节点的对等互联请求，因此我决定关闭这一节点。目前并无对此节点的替代计划。
 
 如果想与我对等互联，请联系 `mashiro350 [at] protonmail [dot] com`, `shanoaice@HackInt#dn42` 或 Telegram @mika_akizuki.
 
