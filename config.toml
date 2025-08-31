@@ -12,8 +12,8 @@ theme = "lightspeed"
 title = "Shanoa Ice's Blog"
 description = "19 y.o. college student."
 
-generate_feed = true
-feed_filename = "rss.xml"
+generate_feeds = true
+feed_filenames = [ "rss.xml" ]
 
 [markdown]
 highlight_code = true
