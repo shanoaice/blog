@@ -10,7 +10,7 @@ build_search_index = true
 theme = "lightspeed"
 
 title = "Shanoa Ice's Blog"
-description = "16 y.o. high school student."
+description = "19 y.o. college student."
 
 generate_feed = true
 feed_filename = "rss.xml"
