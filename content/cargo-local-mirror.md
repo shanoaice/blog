@@ -8,20 +8,26 @@ date = 2020-08-30
 ## 搭建步骤
 
 1. 将github上的rust crates官方镜像源克隆到本地(目前大小100MB多, 还可以接受)
+
 ``` bash
 git clone https://github.com/rust/crates.io-index.git
 ```
+
 2. 切换到本地目录
+
 ``` bash
 cd crates.io-index
 ```
+
 3. 打开这个目录下的`config.json`文件, 然后将其替换为以下内容:
+
 ``` json
 {
     "dl": "https://crates-io.proxy.ustclug.org/api/v1/crates",
     "api": "https://crates.io/"
 }
 ```
+
 *这边用了中科大搭的一个rust crates API反向代理, 这玩意实测可用*
 
 4. 这样镜像本身就搭建好了
@@ -31,21 +37,26 @@ cd crates.io-index
 ## 配置cargo
 
 接下来就轮到配置cargo了, 将以下内容写入你的`~/.cargo/config`文件中(此处路径为使用rustup安装的默认路径):
+
 ``` toml
 [source.crates-io]
 replace-with = 'local'
 [source.local]
 registry = "file://这儿替换成你的镜像目录的绝对路径"
 ```
+
 如果你配置过中科大源, 那你的配置文件应该看上去像这样:
+
 ``` toml
 [source.crates-io]
 replace-with = 'ustc'
 [source.ustc]
 registry = "https://mirrors.ustc.edu.cn/crates.io-index"
 ```
+
 在`source.ustc`项下面加一行 `replace-with = 'local'`
 然后把下面的东西粘贴到文件末尾就行了:
+
 ``` toml
 [source.local]
 registry = "file://这儿替换成你的镜像目录的绝对路径"

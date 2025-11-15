@@ -8,6 +8,7 @@ date = 2023-06-12
 ## 解锁 Bootloader
 
 一定记得手机到手以后要立刻绑定设备，步骤如下：
+
 1. 打开设置，我的设备 > 全部参数与信息，然后持续点击 MIUI 版本的小框直到提示“你已处于开发者模式”。
 2. 转到 更多设置 > 开发者模式 > 设备解锁状态
 3. 点击绑定账号，然后使用你的小米账号登录。如果没有小米账号，你需要注册一个。  
@@ -94,12 +95,14 @@ Magisk 的工作原理是通过修改系统的 Initial Ramdisk 将自己添加�
 3. 打开 Magisk 管理器应用，点击主界面上的 Install / 安装 按钮。点击“选择并修补一个文件”，然后选中先前拷贝至手机上的 `init_boot.img`。修补完成后，将生成的新文件拷贝至电脑上（文件名应该类似 `magisk-*.img`）
 4. 重启手机至 Fastboot 模式并连接至电脑。
 5. 在存放修补过的 `init_boot.img` 的目录中，输入如下命令：
+
    ```sh
    fastboot flash init_boot_ab <magisk patched image>
 
    # 或者，如果你想保留手机的 B 槽位作为不启用 Magisk 修复 bootloop 的安全模式，使用如下命令以保证只刷入 A 槽位
    fastboot flash init_boot_a <magisk patched image>
    ```
+
 6. 重启手机。此时，再次打开 Magisk 管理器应用。你应该会在“当前”一栏中看见现在安装的 Magisk 版本。恭喜你，你已经成功安装了 Magisk!
 
 如果你的手机不是红米 K60 Pro，请自行上网查阅资料，或者你也可以使用 [Fastboot Enhance](https://github.com/libxzr/FastbootEnhance/releases) / TWRP 查看你手机的分区表。如果它拥有独立的 `init_boot` 分区，那么大概率可以使用相同的安装流程。如果它只具有 `boot` 分区且你还是想要让 Magisk 与 KernelSU 共存，那么你需要事先检查好你手机型号所使用的内核压缩格式，下载对应的 KernelSU 内核 img 文件（而不是 AnyKernel 包）并使用 Magisk 应用修补它，然后再通过 fastboot 刷入。具体流程请参阅 [Magisk 安装文档](https://topjohnwu.github.io/Magisk/install.html) 和 [KernelSU 安装文档](https://kernelsu.org/zh_CN/guide/installation.html).

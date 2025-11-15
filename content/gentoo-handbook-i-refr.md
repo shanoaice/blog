@@ -5,30 +5,31 @@ date = 2025-09-10T18:00:00
 +++
 
 
-事先声明：这份安装指南与官方的 Gentoo Handbook 相当不同, 内含大量个人观点 (一般以斜体标出), 并不保证能够覆盖到全部的情况 (相对不关心的部分有: 对较老硬件的支持, 配置和**笔者未遇见过的**边角情况等), 如有任何问题请以官方手册为准. 
+事先声明：这份安装指南与官方的 Gentoo Handbook 相当不同, 内含大量个人观点 (一般以斜体标出), 并不保证能够覆盖到全部的情况 (相对不关心的部分有: 对较老硬件的支持, 配置和**笔者未遇见过的**边角情况等), 如有任何问题请以官方手册为准.
 
 ## 开始
+
 首先, 笔者并不建议使用 Gentoo 官方提供的 Installation ISO, 一些原因有：
 
 - 使用 LTS, 可能无法识别最新的硬件
 - `chroot` 过程较为繁琐
 - 缺乏易用的 `fstab` 生成工具
 
-稍稍筛选后, 笔者选定了 Arch Installation ISO 作为安装媒介. 对于不想对着“可怖”的 console 界面分区的读者, 可以额外获取一份 GParted Live ISO 用于分区. 
+稍稍筛选后, 笔者选定了 Arch Installation ISO 作为安装媒介. 对于不想对着“可怖”的 console 界面分区的读者, 可以额外获取一份 GParted Live ISO 用于分区.
 
 对于不在乎是否可以简单地重复利用安装 USB 的读者, 可以简单地使用 Rufus 或 Etcher 直接写入 USB (Etcher 支持 Linux, 也可以直接使用 `dd` 写入). ~~一些比较怀旧的读者也可以自行刻录光盘, 毕竟 Arch Installation ISO 也不大.~~
 
 如果希望能够简单地重复利用 USB 设备或者不想为了使用 GParted Live ISO 而写入多次 USB 的读者, 笔者推荐使用 [Ventoy](https://www.ventoy.net/cn/index.html).
 
-接下来, 前往 [Get Gentoo!](https://www.gentoo.org/downloads/#amd64-advanced) 页面获取对应的 stage 3 tarball (本文作者使用的是 **desktop profile | systemd** 的 stage 3 tarball, 指南内容也以 systemd 的配置为主, 如果希望使用 OpenRC 作为 init, 那么接下来的指南中部分 systemd 相关的内容请自行参考 Gentoo Manual 替换为 OpenRC 的等价配置) 并且保存在可以比较容易从 Arch ISO 中访问的位置. 
+接下来, 前往 [Get Gentoo!](https://www.gentoo.org/downloads/#amd64-advanced) 页面获取对应的 stage 3 tarball (本文作者使用的是 **desktop profile | systemd** 的 stage 3 tarball, 指南内容也以 systemd 的配置为主, 如果希望使用 OpenRC 作为 init, 那么接下来的指南中部分 systemd 相关的内容请自行参考 Gentoo Manual 替换为 OpenRC 的等价配置) 并且保存在可以比较容易从 Arch ISO 中访问的位置.
 
 ## 配置网络
 
 进入 Arch ISO 后, 如果使用的是 Ethernet 连接, 则一般无需关心配置, `systemd-networkd` 会把工作做好. 对于使用静态 IP 的读者, 可以参考 [systemd-networkd (ArchWiki)#Wired adapter using a static IP](https://wiki.archlinux.org/title/Systemd-networkd#Wired_adapter_using_a_static_IP) 章节配置网络.
 
-如果是无线网络, 则可以利用 Arch ISO 提供的 `iwctl` 工具做配置. 首先, 输入 `iwctl` 进入 iwctl shell, 随后 `station list` 列出可用的无线设备. 如果列表为空, 则可以输入 `exit` 退出 iwctl shell 并使用 `rfkill list` 检查无线连接是否被禁用. 
+如果是无线网络, 则可以利用 Arch ISO 提供的 `iwctl` 工具做配置. 首先, 输入 `iwctl` 进入 iwctl shell, 随后 `station list` 列出可用的无线设备. 如果列表为空, 则可以输入 `exit` 退出 iwctl shell 并使用 `rfkill list` 检查无线连接是否被禁用.
 
-如果看到 Wireless LAN 有 blocked: yes, 说明无线连接被禁用. 
+如果看到 Wireless LAN 有 blocked: yes, 说明无线连接被禁用.
 
 ```
 0: phy0: Wireless LAN
@@ -36,7 +37,7 @@ date = 2025-09-10T18:00:00
     Hard blocked: yes
 ```
 
-启用无线连接: 
+启用无线连接:
 
 ```bash
 rfkill unblock wifi
@@ -72,15 +73,15 @@ timedatectl set-ntp true
 - ZFS: 源自企业级解决方案的高级文件系统, 但配置方法复杂, 配置选项也极为繁多，对于不同的负载场合需要应用不同的配置才能达到最佳性能, 且缓存配置对于内存容量要求高, 在消费级环境中可能较为捉襟见肘. 最重要的是, ZFS 支持来自内核外的附加模块, 且无论是 Arch Linux LiveISO 还是一般的 Gentoo LiveISO 都不默认支持配置 ZFS. 仅在你已经熟悉或者在可控环境中练习过如何配置 ZFS 时才应该考虑配置 ZFS.
 - VFAT/FAT32: 有 4GB 的文件大小上限, 一般只用于 EFI/boot 分区以保证兼容性. 毕竟, 几乎所有相对现代的工具都能读取 VFAT.
 
-Swap 交换分区一般也是必要的, 虽然许多指南推荐 Swap 分区应为 RAM 的两倍, 但对于几乎标配 >=8GB RAM 的现代设备来说, 笔者的拙见是 2x RAM 的 Swap 颇有些高射炮打蚊子的意味, 所以对于 >=8GB RAM 的设备来说, 一般笔者推荐至少配置 8GB 的 Swap, 如果有休眠的需求的话, 保险起见可配置 Swap Size = RAM Size, 如果你不经常占满内存, 由于 Linux 内核在写入 swap 分区前会先释放非易失性的页面缓存, 通常配置 1/2 RAM Size 大小的 Swap 也可以成功休眠. 不要忘记 `swapon [swap device]` 以启用 swap, 这不仅可以省去稍后生成 fstab 时手写 swap 项的麻烦, 也可以防止 Gentoo 构建时占用内存过多导致 OOM 的问题. 
+Swap 交换分区一般也是必要的, 虽然许多指南推荐 Swap 分区应为 RAM 的两倍, 但对于几乎标配 >=8GB RAM 的现代设备来说, 笔者的拙见是 2x RAM 的 Swap 颇有些高射炮打蚊子的意味, 所以对于 >=8GB RAM 的设备来说, 一般笔者推荐至少配置 8GB 的 Swap, 如果有休眠的需求的话, 保险起见可配置 Swap Size = RAM Size, 如果你不经常占满内存, 由于 Linux 内核在写入 swap 分区前会先释放非易失性的页面缓存, 通常配置 1/2 RAM Size 大小的 Swap 也可以成功休眠. 不要忘记 `swapon [swap device]` 以启用 swap, 这不仅可以省去稍后生成 fstab 时手写 swap 项的麻烦, 也可以防止 Gentoo 构建时占用内存过多导致 OOM 的问题.
 
-如果磁盘空间实在是捉襟见肘, 那么可以考虑稍稍缩小 Swap 分区的大小. 如果实在是无法挤出足够的空间, 那么在拥有 >=16GB RAM 的情况下 swapless 配置也并非是无法接受 (尽管这可能会造成一些性能损失), 此时一般建议配合 zram 来节约内存空间 (可以参考笔者先前的一篇关于配置 zram 的文章). 
+如果磁盘空间实在是捉襟见肘, 那么可以考虑稍稍缩小 Swap 分区的大小. 如果实在是无法挤出足够的空间, 那么在拥有 >=16GB RAM 的情况下 swapless 配置也并非是无法接受 (尽管这可能会造成一些性能损失), 此时一般建议配合 zram 来节约内存空间 (可以参考笔者先前的一篇关于配置 zram 的文章).
 
-有时, 你可能不想单独有一个 swap 分区, 那么 swapfile 也是可以考虑的. 笔者不在此赘述 swapfile 的配置方法, 读者如有兴趣可以参考 ArchWiki 中的相关文档. 
+有时, 你可能不想单独有一个 swap 分区, 那么 swapfile 也是可以考虑的. 笔者不在此赘述 swapfile 的配置方法, 读者如有兴趣可以参考 ArchWiki 中的相关文档.
 
 ### 分区建议
 
-此处笔者给出一些分区的建议, 仅供参考. 此处仅考虑 GPT+EFI 的配置, 如果有任何 MBR/Legacy BIOS 或 coreboot 的需求请自行查阅文档. 
+此处笔者给出一些分区的建议, 仅供参考. 此处仅考虑 GPT+EFI 的配置, 如果有任何 MBR/Legacy BIOS 或 coreboot 的需求请自行查阅文档.
 
 对于只需要 Linux 单盘单系统用户而言, 如下的分区足以：
 
@@ -89,9 +90,9 @@ Swap 交换分区一般也是必要的, 虽然许多指南推荐 Swap 分区应�
   - 对于使用 GRUB 2 和传统 initramfs + vmlinuz 配置的用户来说, 可以考虑不用太大的 EFI 分区, 而是将内核文件放在分开的 `/boot` 分区中. `/boot` 分区可以使用任何 GRUB 支持的文件系统格式, 如果不确定的话 `ext4` 永远是最不坏的选择, 没有文件大小限制又可靠
   - 尽管 systemd-boot 支持使用 XBOOTLDR 来扩展 EFI 分区, 但 FAT32 的短 UUID 格式并不能装下 XBOOTLDR 所要求的标准标识符, 而大部分市面上的设备所搭载的 UEFI 固件都不支持除三种基础 FAT 格式以外的任何格式, 所以我相当不推荐使用 XBOOTLDR 来扩展 EFI 分区. 如果你一定希望这么做, 请参见 The Unorthodox Gentoo Handbook I (Advanced) 章节中的内容. *(筹备中)*
 - 合适大小的 Swap 分区 (按照传统一般建议放在磁盘较为靠前的位置, 因为机械硬盘较外圈的磁道速度快, `/boot` 分区同理, SSD 则可以无需担心位置)
-- 剩余的所有空间都留给系统分区. 
+- 剩余的所有空间都留给系统分区.
 
-如果需要和 Windows 等其他系统共存的话, 此时你的磁盘一般已经有 EFI 分区了, 所以可以不必担心它. 此时你一般需要从一个 Windows 分区中腾出一些空间. (建议至少为系统分区留下 30GB 和合适大小的 Swap 空间) 这项工作可以使用 Windows 的磁盘管理工具或者 GParted 完成. 随后, 按照上述的方法分区即可. 
+如果需要和 Windows 等其他系统共存的话, 此时你的磁盘一般已经有 EFI 分区了, 所以可以不必担心它. 此时你一般需要从一个 Windows 分区中腾出一些空间. (建议至少为系统分区留下 30GB 和合适大小的 Swap 空间) 这项工作可以使用 Windows 的磁盘管理工具或者 GParted 完成. 随后, 按照上述的方法分区即可.
 
 #### 题外话: 高级配置
 
@@ -99,7 +100,7 @@ Swap 交换分区一般也是必要的, 虽然许多指南推荐 Swap 分区应�
 
 ---
 
-假定你现在已经完成分区和 mkfs 的工作, 对于 ext4 分区的配置可以直接跳到下一节, 而对于 Btrfs 分区的配置推荐阅读以下内容. 
+假定你现在已经完成分区和 mkfs 的工作, 对于 ext4 分区的配置可以直接跳到下一节, 而对于 Btrfs 分区的配置推荐阅读以下内容.
 
 ### 配置子卷
 
@@ -194,7 +195,7 @@ CFLAGS 和 CXXFLAGS 变量分别定义了 GCC C / C++ 编译器的优化选项. 
 
 第三个是选项 `-O` (即大写的字母O, 而不是数字零), 它指定了 gcc 的优化级别, 可能用到级别的是 s (对于大小最优化), 0 (零 - 无优化), 1, 2 或甚至 3 等更多的优化选项 (每个级别具有与前面相同的标志, 加上一些额外选项).  `-O2` 是建议的默认值. `-O3` 在整个系统范围内使用时会导致问题 (对特定应用程序使用也有产生负优化的可能性), 因此笔者建议尽可能使用 `-O2`.
 
-另一个普遍使用的选项是 `-pipe` (不同编译阶段通信使用管道而不是临时文件). 它对产生的代码没有任何影响, 但是会使用更多的内存, 好处则是管道的效率相比临时文件略高 (因为数据经过更快的内存而不是磁盘). 在内存不多的系统里, gcc 可能会触发 OOM Kill. 如果是那样的话, 就不要用这个选项. 
+另一个普遍使用的选项是 `-pipe` (不同编译阶段通信使用管道而不是临时文件). 它对产生的代码没有任何影响, 但是会使用更多的内存, 好处则是管道的效率相比临时文件略高 (因为数据经过更快的内存而不是磁盘). 在内存不多的系统里, gcc 可能会触发 OOM Kill. 如果是那样的话, 就不要用这个选项.
 
 在定义 CFLAGS 和 CXXFLAGS 的时候, 这些优化选项需要被合并. 可以参考下面的例子:
 
@@ -208,7 +209,7 @@ CXXFLAGS="${COMMON_FLAGS}"
 
 #### RUSTFLAGS
 
-有许多现代应用程序使用 Rust 语言编写. `rustc` 有它自己的一套优化选项, 它通常对所有 Release 构建应用第 3 级别优化, 笔者同样不会解释所有可用的优化选项, 好奇的读者可参见 [Rust 文档](https://doc.rust-lang.org/rustc/codegen-options/index.html). 最有用且简单的优化是指定 `rustc` 编译到当前系统的体系结构, 如同 C/C++ 中的 `-march=native -mtune=native` 一样: 
+有许多现代应用程序使用 Rust 语言编写. `rustc` 有它自己的一套优化选项, 它通常对所有 Release 构建应用第 3 级别优化, 笔者同样不会解释所有可用的优化选项, 好奇的读者可参见 [Rust 文档](https://doc.rust-lang.org/rustc/codegen-options/index.html). 最有用且简单的优化是指定 `rustc` 编译到当前系统的体系结构, 如同 C/C++ 中的 `-march=native -mtune=native` 一样:
 
 ```sh
 RUSTFLAGS="${RUSTFLAGS} -C target-cpu=native"
@@ -253,6 +254,7 @@ genfstab -U /mnt > /mnt/etc/fstab
 事先提示: 由于 Arch Installation ISO 使用的是 systemd-resolved 用于 DNS caching, 不论读者使用的是 systemd 还是 OpenRC init 的 stage3 tarball, 复制得来的 resolve.conf 都是 systemd-resolved 生成的临时 stub conf, 在完成安装重启前是需要重新配置的.
 
 输入以下命令将当前环境的 resolv.conf 复制至 Gentoo chroot 中:
+
 ```sh
 cp --dereference /etc/resolv.conf /mnt/etc/
 ```
@@ -280,6 +282,7 @@ cp /mnt/usr/share/portage/config/repos.conf /mnt/etc/portage/repos.conf/gentoo.c
 ```
 
 修改 `/mnt/etc/portage/repos.conf/gentoo.conf` 的 sync-uri 选项, 使其符合读者你选择的镜像配置. 笔者建议使用 Git Repo Sync, 它通常远快于 Rsync, 配置可参见 [Gentoo Wiki](https://wiki.gentoo.org/wiki/Portage_with_Git) 和各大高校镜像站的文档. desktop stage 3 tarball 已默认包含 `dev-vcs/git`, 否则在 chroot 后, 同步之前需要使用 `emerge-webrsync` 获取一份 Portage 快照并安装 git, 然后才可以同步. 使用 USTC Gentoo Portage with Git 样例:
+
 ```conf
 [DEFAULT]
 main-repo = gentoo
@@ -660,7 +663,7 @@ rc-update add cronie default
 emerge -av sys-boot/grub:2
 ```
 
-请注意: 运行上述命令将在出现之前输出启用的 GRUB_PLATFORMS 值. 如果输出中没有 `efi-64`, 则需要在安装前将 `GRUB_PLATFORMS="efi-64"` 添加到 `/etc/portage/make.conf` 再安装: 
+请注意: 运行上述命令将在出现之前输出启用的 GRUB_PLATFORMS 值. 如果输出中没有 `efi-64`, 则需要在安装前将 `GRUB_PLATFORMS="efi-64"` 添加到 `/etc/portage/make.conf` 再安装:
 
 ```sh
 echo "GRUB_PLATFORMS="efi-64" >> /etc/portage/make.conf
@@ -731,6 +734,6 @@ umount -vR /mnt
 reboot
 ```
 
-现在, 可以开始安装后工作了. 
+现在, 可以开始安装后工作了.
 
 安装后工作的 Handbook 第二章还在筹备.
