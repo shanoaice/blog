@@ -1,7 +1,8 @@
-+++
-title = '构建一个本地rust crates镜像'
-date = 2020-08-30
-+++
+---
+title: 构建一个本地rust crates镜像
+createTime: '2020-08-30'
+permalink: /cargo-local-mirror/
+---
 
 众所周知, rust的官方包管理器源在国内有点小问题, 轻则下载速度缓慢, 重则连接超时, 而唯一在国内提供rust crates镜像源的中科大源也时常挂掉, 所以你也许需要构建一个本地源以备不时之需.
 

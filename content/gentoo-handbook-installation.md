@@ -1,8 +1,8 @@
-+++
-title = "The Unorthodox Gentoo Handbook I"
-date = 2021-11-21T17:39:00
-
-+++
+---
+title: The Unorthodox Gentoo Handbook I
+createTime: '2021-11-21 17:39:00'
+permalink: /gentoo-handbook-installation/
+---
 
 > 本文写成于 2021 年 11 月 21 日，已经严重过时，且笔者在完成本文后有较长时间没有亲自使用和维护过一个 Gentoo 安装。鉴于此，本文可能无法准确地反映 Gentoo 的安装流程，请移步更新的 [The Unorthodox Gentoo Handbook I (Refreshed)](./gentoo-handbook-i-refr.md)。
 

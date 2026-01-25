@@ -1,7 +1,8 @@
-+++
-title = "拯救因意外断电损坏的 systemd-homed 加密家目录"
-date = 2025-11-15
-+++
+---
+title: 拯救因意外断电损坏的 systemd-homed 加密家目录
+createTime: '2025-11-15'
+permalink: /rescue-homectl/
+---
 
 前两天，当我在更新我笔记本上的 Arch Linux 时，由于忘记更新过程还没结束就尝试使用 supergfxctl 切换集成显卡并注销，导致内核挂起，不得不强制关机。重启后发现似乎刚好内核生成也没有跑完，本以为使用 Arch Live ISO 重复被中断的更新过程就能解决问题，结果重启后能够正常进入系统，但登录后 Plasma 界面却未能显示，同时弹出大量家目录不可写的弹窗。
 

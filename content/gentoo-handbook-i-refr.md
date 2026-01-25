@@ -1,8 +1,8 @@
-+++
-title = "The Unorthodox Gentoo Handbook I (Refreshed)"
-date = 2025-09-10T18:00:00
-
-+++
+---
+title: The Unorthodox Gentoo Handbook I (Refreshed)
+createTime: '2025-09-10 18:00:00'
+permalink: /gentoo-handbook-i-refr/
+---
 
 
 事先声明：这份安装指南与官方的 Gentoo Handbook 相当不同, 内含大量个人观点 (一般以斜体标出), 并不保证能够覆盖到全部的情况 (相对不关心的部分有: 对较老硬件的支持, 配置和**笔者未遇见过的**边角情况等), 如有任何问题请以官方手册为准.

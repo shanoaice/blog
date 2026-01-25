@@ -1,7 +1,8 @@
-+++
-title = 'Redmi K60 Pro 折腾全过程'
-date = 2023-06-12
-+++
+---
+title: Redmi K60 Pro 折腾全过程
+createTime: '2023-06-12'
+permalink: /flashing-eu-rom-magisk-ksu-k60pro/
+---
 
 最近正值 618 大促，自己的旧手机续航已经逐渐下滑，华为的 HarmonyOS 虽然日用非常棒，但是折腾空间太小。一番搜索后，我购入了红米的 K60 Pro. 在长达 7 天的等待后，一切折腾终于可以开始了。本文记录了一下给这台机子刷入 MIUI EU ROM 并安装 KernelSU, Magisk 和 LSPosed 的全过程，整体过程应该不针对红米 K60 Pro，但其他机型请务必参考网上的其他教程，防止刷成砖 ;-)
 

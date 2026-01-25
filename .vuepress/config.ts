@@ -3,13 +3,25 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 
 export default defineUserConfig({
+  base: '/',
   lang: 'zh-CN',
+  title: "Shanoa Ice's Blog",
+  description: '19 y.o. college student.',
   theme: plumeTheme({
-    // theme config...
+    plugins: {
+      shiki: {
+        langAlias: {
+          conf: 'ini',
+          gentoo: 'bash',
+          hosts: 'ini',
+        },
+      },
+    },
   }),
   bundler: viteBundler(),
   pagePatterns: [
-  	"!README.md",
-  	"index.md"
-  ]
+    'index.md',
+    'content/**/*.md',
+    '!README.md',
+  ],
 })

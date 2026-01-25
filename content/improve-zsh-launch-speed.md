@@ -1,7 +1,8 @@
-+++
-title = '加快 Zsh 启动速度'
-date = 2020-08-30
-+++
+---
+title: 加快 Zsh 启动速度
+createTime: '2020-08-30'
+permalink: /improve-zsh-launch-speed/
+---
 
 Bash 是个好 shell，但是我选择 Zsh，因为 Zsh 可配置性强，但可配置性强带来的后果就是你的 Zsh 可能会花上好几秒去启动，这样非常烦人，所以我现在就来分享一些加快 Zsh 启动速度的技巧
 

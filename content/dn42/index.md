@@ -1,10 +1,9 @@
-+++
-title = 'DN42'
-date = 2025-08-31
-
-[extra]
-hidden = true
-+++
+---
+title: DN42
+createTime: '2025-08-31'
+permalink: /dn42/
+article: false
+---
 
 > 目前, 我暂时已经不再维护我的 DN42 网络 (AS4242423743).
 > As of now, I am not maintaining my DN42 network (AS4242423743)

@@ -1,8 +1,9 @@
-+++
-title = '记录配置 DN42 内网过程'
-date = 2022-01-18
-draft = true
-+++
+---
+title: 记录配置 DN42 内网过程
+createTime: '2022-01-18'
+permalink: /dn42/internal-network/
+draft: true
+---
 
 在此记录一下配置 DN42 内网的过程.
 
