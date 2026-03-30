@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@vuepress/bundler-vite": "^2.0.0-rc.26",
+    "vue": "^3.5.31",
+    "vuepress": "^2.0.0-rc.26",
+    "vuepress-theme-plume": "^1.0.0-rc.192"
+  },
+  "scripts": {
+  	"dev": "vuepress dev",
+  	"build": "vuepress build"
+  }
+}

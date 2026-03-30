@@ -1,0 +1,4 @@
+---
+pageLayout: 'home'
+---
+Blog

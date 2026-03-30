@@ -2,3 +2,7 @@ public
 .vscode
 .ionide
 debug.log
+node_modules
+.temp
+.cache
+.vuepress/dist
