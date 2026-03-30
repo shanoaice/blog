@@ -9,7 +9,10 @@
     "vuepress-theme-plume": "^1.0.0-rc.192"
   },
   "scripts": {
-  	"dev": "vuepress dev",
-  	"build": "vuepress build"
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "peerDependencies": {
+    "typescript": "^6.0.2"
   }
 }
