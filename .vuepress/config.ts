@@ -9,6 +9,7 @@ export default defineUserConfig({
   }),
   bundler: viteBundler(),
   pagePatterns: [
-  	"!README.md"
+  	"!README.md",
+  	"index.md"
   ]
 })
