@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
   title: "Shanoa Ice's Blog",
-  description: '19 y.o. college student.',
+  description: '20 y.o. college student.',
   theme: plumeTheme({
     plugins: {
       shiki: {

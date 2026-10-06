@@ -5,7 +5,7 @@ export default defineThemeConfig({
   // Theme Config
   profile: {
     name: 'Shanoa Ice',
-    description: '19 y.o. college student.',
+    description: '20 y.o. college student.',
   },
   social: [
     { icon: 'github', link: 'https://github.com/shanoaice' },
@@ -21,6 +21,6 @@ export default defineThemeConfig({
   ],
   footer: {
     message: 'Maintained with &hearts; for the web.',
-    copyright: 'Copyright © 2026 Shanoa Ice',
+    copyright: 'CC-BY-SA-4.0 © 2026 Shanoa Ice',
   },
 })
